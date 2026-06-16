@@ -43,19 +43,32 @@ Objective → Understanding the Data → Data Cleaning & Transformation → Data
 
 **Column Reference:**
 
-| Column                | Description                      |
-|-----------------------|----------------------------------|
-| `Product Name`        | Full iPhone model name           |
-| `Product URL`         | Flipkart listing link            |
-| `Brand`               | Apple                            |
-| `Sale Price`          | Current selling price (INR)      |
-| `MRP`                 | Maximum Retail Price (INR)       |
-| `Discount Percentage` | Discount offered (%)             |
-| `Number Of Ratings`   | Total customer ratings           |
-| `Number Of Reviews`   | Total written reviews            |
-| `UPC`                 | Unique product code              |
-| `Star Rating`         | Average star rating (out of 5)   |
-| `RAM`                 | Device RAM                       |
+| Column | Description |
+|---------|-------------|
+| `Match ID` | Unique Match Identifier |
+| `Match Date` | Date of Match |
+| `Venue` | Match Venue |
+| `Team 1` | First Team |
+| `Team 2` | Second Team |
+| `Stage` | Tournament Stage |
+| `Toss Winner` | Team Winning Toss |
+| `Toss Decision` | Bat/Bowl Choice |
+| `First Innings Score` | Team Batting First Score |
+| `First Innings Wickets` | Wickets Lost in First Innings |
+| `Second Innings Score` | Team Batting Second Score |
+| `Second Innings Wickets` | Wickets Lost in Second Innings |
+| `Match Result` | Final Result of the Match |
+| `Match Winner` | Winning Team |
+| `Win By Runs` | Victory Margin (Runs) |
+| `Win By Wickets` | Victory Margin (Wickets) |
+| `Balls Left` | Balls Remaining When Chasing Team Won |
+| `Player Of The Match` | Match Award Winner |
+| `Top Scorer` | Highest Scorer |
+| `High Score` | Highest Individual Score |
+| `Best Bowling` | Best Bowling Performer |
+| `Best Bowling Figure` | Bowling Figures |
+| `Super Over Match` | Super Over Status |
+
 
 ---
 
@@ -63,7 +76,6 @@ Objective → Understanding the Data → Data Cleaning & Transformation → Data
 
 ```python
 import pandas as pd               # Data loading, cleaning, exploration
-import numpy as np                # Numerical operations
 import plotly.express as px       # Interactive charts and visualizations
 import plotly.graph_objects as go # Custom graph objects
 ```
@@ -72,96 +84,91 @@ import plotly.graph_objects as go # Custom graph objects
 
 ## What I Learned
 
-**Pandas**
-- Loading CSV files using `pd.read_csv()`
-- Exploring data with `data.head()`, `data.shape`, `data.info()`
-- Checking for missing values using `data.isnull().sum()`
-- Statistical summary using `data.describe()`
-- Sorting records using `data.sort_values()`
-- Selecting and filtering specific columns from a DataFrame
-
-**NumPy**
-- Numerical operations on DataFrame columns
-- Understanding data types and basic statistical measures
-
-**Plotly**
+**Plotly Express**
 - Creating interactive bar charts using `plotly.express`
-- Building scatter plots with OLS trendlines using `trendline="ols"`
-- Using the `size` parameter for bubble-style scatter plots
-- Customizing chart titles and axis labels
+- Visualizing team wins, player awards, and top scorers
+- Customizing chart titles and labels
+
+**Plotly Graph Objects**
+- Creating donut charts using `plotly.graph_objects`
+- Comparing matches won by defending and chasing
 
 **EDA Concepts**
-- Following the Data Analytics Life Cycle
-- Exploring and understanding an unfamiliar dataset
-- Deriving insights through sorting, filtering, and visualization
+- Understanding a sports dataset
+- Analyzing team and player performances
+- Deriving insights through data visualization
 
 ---
 
 ## Analysis and Visualizations
 
-### 1. Numbers of Ratings — Highest Rated iPhones
+### 1. Number of Matches Won by Each Team
 
-Bar chart showing which top-rated iPhone models received the most customer ratings.
-
+Bar chart showing total matches won by each IPL team.
 <p align="center">
-  <img src="images/newplot.png" alt="Number of Ratings Bar Chart" width="760"/>
+  <img src="images/team_wins.png" alt="Number of Ratings Bar Chart" width="760"/>
 </p>
 
-**Insight:** The iPhone 8 Plus (Gold, 64 GB) has the highest number of ratings among the top-rated models, indicating strong sales volume.
+**Insight:** RCB and PBKS emerged as the most successful teams with 6 victories each during the first 39 matches.
 
 ---
 
-### 2. Numbers of Reviews — Highest Rated iPhones
+### 2. Defending vs Chasing Wins
 
-Bar chart comparing the number of written reviews for top-rated iPhone models.
-
+Donut chart comparing matches won while defending a target versus chasing.
 <p align="center">
-  <img src="images/newplot_1_.png" alt="Number of Reviews Bar Chart" width="760"/>
+  <img src="images/defending_vs_chasing.png" alt="Number of Reviews Bar Chart" width="760"/>
 </p>
 
-**Insight:** The iPhone 8 Plus also leads in total reviews, reflecting high customer engagement on Flipkart.
-
+**Insight:** The chart highlights whether batting first or chasing provided a greater advantage during the tournament.
 ---
 
-### 3. Relationship Between Sale Price and Number of Ratings
-
-Scatter plot with trendline examining how price affects the volume of customer ratings.
-
+### 3. Best Bowling Performances
+Bar chart displaying bowlers with the highest number of best bowling performances.
 <p align="center">
-  <img src="images/newplot_2_.png" alt="Sale Price vs Number of Ratings" width="760"/>
+  <img src="images/best_bowler.png" alt="Sale Price vs Number of Ratings" width="760"/>
 </p>
 
-**Insight:** Lower-priced models such as the iPhone SE and iPhone 11 have significantly more ratings, suggesting higher purchase volumes at accessible price points.
-
+**Insight:** Jofra Archer recorded the highest number of standout bowling performances, earning recognition 3 times.
 ---
 
-### 4. Relationship Between Discount Percentage and Number of Ratings
+### 4. Player of the Match Awards
 
-Scatter plot with OLS trendline showing how discount levels relate to customer rating counts.
-
+Bar chart comparing Player of the Match award winners.
 <p align="center">
-  <img src="images/newplot_3_.png" alt="Discount Percentage vs Number of Ratings" width="760"/>
+  <img src="images/player_of_match.png" alt="Discount Percentage vs Number of Ratings" width="760"/>
 </p>
 
-**Insight:** Products offering higher discounts tend to accumulate more ratings, indicating that discounts drive purchase volume and customer feedback.
+**Insight:** Priyansh Arya, Sameer Rizvi, Sanju Samson, and Josh Hazlewood were among the most influential players with multiple awards.
+---
+
+### 5. Top Scorer Analysis
+
+Bar chart showing players who finished as top scorers across matches.
+<p align="center">
+  <img src="images/top_scorer.png" alt="Discount Percentage vs Number of Ratings" width="760"/>
+</p>
+
+**Insight:** Sanju Samson and Abhishek Sharma emerged as the most frequent top scorers, each achieving the feat three times.
 
 ---
 
 ## Project Structure
 
 ```
-Python_Data_Analysis_Mini_Project/
+Python_Data_Analysis_Mini_Project-2/
 |
 |-- images/
-|   |-- Life_cycle.jpeg                      # Data Analytics Life Cycle reference
-|   |-- newplot.png                          # Bar chart — Ratings
-|   |-- newplot_1_.png                       # Bar chart — Reviews
-|   |-- newplot_2_.png                       # Scatter — Sale Price vs Ratings
-|   |-- newplot_3_.png                       # Scatter — Discount % vs Ratings
+|   |-- Life_cycle.png                   # Life cycle image
+|   |-- team_wins.png                    # Bar chart — Matches Won by Each Team
+|   |-- defending_vs_chasing.png         # Donut chart — Defending vs Chasing Wins
+|   |-- best_bowler.png                  # Bar chart — Best Bowling Performances
+|   |-- player_of_match.png              # Bar chart — Player of the Match Awards
+|   |-- top_scorer.png                   # Bar chart — Top Scorer Analysis
 |
-|-- apple_products.csv                       # Dataset
-|-- I-Phone_dataAnalysis_Using_Python.ipynb  # Main Jupyter Notebook
-|-- README.md                                # Project documentation
+|-- 1-39_Record_Dataset-IPL2026.csv      # IPL 2026 Dataset (First 39 Matches)
+|-- IPL_2026_Analysis_First_39_Matches.ipynb # Main jupyter notebook file
+|-- README.md                            # Project Documentation
 ```
 
 ---
