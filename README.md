@@ -159,16 +159,16 @@ Bar chart showing players who finished as top scorers across matches.
 Python_Data_Analysis_Mini_Project-2/
 |
 |-- images/
-|   |-- Life_cycle.png                   # Life cycle image
-|   |-- team_wins.png                    # Bar chart — Matches Won by Each Team
-|   |-- defending_vs_chasing.png         # Donut chart — Defending vs Chasing Wins
-|   |-- best_bowler.png                  # Bar chart — Best Bowling Performances
-|   |-- player_of_match.png              # Bar chart — Player of the Match Awards
-|   |-- top_scorer.png                   # Bar chart — Top Scorer Analysis
+|   |-- Life_cycle.png                       # Life cycle image
+|   |-- team_wins.png                        # Bar chart — Matches Won by Each Team
+|   |-- defending_vs_chasing.png             # Donut chart — Defending vs Chasing Wins
+|   |-- best_bowler.png                      # Bar chart — Best Bowling Performances
+|   |-- player_of_match.png                  # Bar chart — Player of the Match Awards
+|   |-- top_scorer.png                       # Bar chart — Top Scorer Analysis
 |
-|-- 1-39_Record_Dataset-IPL2026.csv      # IPL 2026 Dataset (First 39 Matches)
+|-- 1-39_Record_Dataset-IPL2026.csv          # IPL 2026 Dataset (First 39 Matches)
 |-- IPL_2026_Analysis_First_39_Matches.ipynb # Main jupyter notebook file
-|-- README.md                            # Project Documentation
+|-- README.md                                # Project Documentation
 ```
 
 ---
